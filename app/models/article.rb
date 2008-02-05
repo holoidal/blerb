@@ -9,13 +9,14 @@ class Article < DataMapper::Base
 
   property :published_at, :datetime
   property :draft, :boolean
+  property :user_id, :integer
 
+  permalinker :title
+  
   has_many :comments
   belongs_to :user
   
   validates_presence_of :title
-  
-  permalinker :title
   
 end
 
